@@ -36,15 +36,24 @@
       }
     }
   }
+}
   &__group-list{
-    height: 500px;
-    background-color: red;
+    height: calc(100vh-100px);
     &__group-box{
       height: 91px;
-      background-color: red;
+      color: #ffffff;
+      &__name{
+        height: 15px;
+        width: 260px;
+        margin: 20px 20px 5px 20px ; 
+      }
+      &__message{
+        height: 11px;
+        width: 260px;
+        margin: 0px 20px 40px 20px; 
+      }
     }
   }
-}
 }
 
 .chat-main {
