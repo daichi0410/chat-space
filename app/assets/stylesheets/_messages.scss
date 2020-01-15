@@ -181,7 +181,10 @@
         position: absolute;
         right: 10px;
         &__btn{
-          color: black;
+          color: #434a54;
+          &__file{
+            display: none;
+          }
         }
        }
     }
