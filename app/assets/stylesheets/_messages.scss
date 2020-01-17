@@ -37,22 +37,23 @@
     }
   }
 }
-  &__group-list{
-    height: calc(100vh-100px);
-    &__group-box{
-      height: 91px;
-      color: #ffffff;
-      &__name{
-        font-size: 15px;
-        width: 260px;
-        margin: 20px 20px 5px 20px ; 
-      }
-      &__message{
-        font-size: 11px;
-        width: 260px;
-        margin: 0px 20px 40px 20px; 
-      }
-    }
+}
+
+.group{
+  height: calc(100vh-100px);
+  &__name{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    width: 260px;
+    margin: 20px 20px 5px 20px ; 
+  }
+  &__message{
+    text-decoration: none;
+    color: white;
+    font-size: 11px;
+    width: 260px;
+    margin: 0px 20px 40px 20px; 
   }
 }
 
