@@ -10,6 +10,7 @@
    .chat-main__group-info__title__edit 
     =link_to edit_group_path(current_user), class:"chat-main__group-info__btn chat-main__group-info__btn--edit" do
      Edit
+
  .chat-main__message-list
   = render @messages
   -# .chat-main__message-list__namebox1
@@ -29,9 +30,10 @@
   -#  今日は夜から雨。
  .chat-main__message-form
   = form_for [@group, @message] do |f|
-   = f.text_field :content, class: 'chat-main__message-form__text', placeholder: 'type a message'
-   .chat-main__message-form__textbox__text__image
-    = f.label :image, class: 'chat-main__message-form__text__image' do
+   .chat-main__message-form__box
+    = f.text_field :content, class: 'chat-main__message-form__box__text', placeholder: 'type a message'
+   .chat-main__message-form__image
+    = f.label :image, class: 'chat-main__message-form__image' do
      =icon('far', 'image', class:'icon')
-    = f.file_field :image, class: 'hidden'
-    = f.submit 'Send', class: 'chat-main__message-form__send'
+     = f.file_field :image, class: 'hidden'
+   = f.submit 'Send', class: 'chat-main__message-form__send'
