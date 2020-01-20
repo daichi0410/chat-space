@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .wrapper{
@@ -41,15 +42,14 @@
 
 .group{
   height: calc(100vh-100px);
+  overflow: scroll;
   &__name{
-    text-decoration: none;
     color: white;
     font-size: 15px;
     width: 260px;
     margin: 20px 20px 5px 20px ; 
   }
   &__message{
-    text-decoration: none;
     color: white;
     font-size: 11px;
     width: 260px;
@@ -113,6 +113,7 @@
   &__message-list{
     background-color: #fafafa;
     height: calc(100vh - 190px);
+    overflow: scroll;
     &__namebox1{
       display: flex;
       padding-top: 35px;
@@ -161,44 +162,53 @@
     background-color: #d2d2d2;
     height: 90px;
     display: flex;
-    justify-content: space-between;
-    &__textbox{
-      align-items: center;
-      height: 50px;
-      background-color: #fafafa;
-      display: flex;
-      justify-content: space-between;
-      margin-left: 40px;
-      margin-top: 20px;
-      margin-right: 10px;
+    padding: 20px 40px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    &__box{
       width: 100%;
       position: relative;
       &__text{
-        margin-left: 10px;
         color: #999999;
         font-size: 12px;
-       }
-      &__image{
-        position: absolute;
-        right: 10px;
-        &__btn{
-          color: #434a54;
-          &__file{
-            display: none;
-          }
-        }
-       }
+        width: 100%;
+        height: 50px;
+        width: 100%;
+        margin-right: 10px;
+        padding-left: 10px;
+      }
     }
+    &__image{
+        font-size: 1.3rem;
+        position: absolute;
+        cursor: pointer;
+        right: 80px;
+        top: 17px;
+        }
     &__send{
-        margin-top: 20px;
-        margin-right: 40px;
         text-align: center;
         line-height: 50px;
         color: #ffffff;
         width: 100px;
         height: 50px;
         background-color: #38aef0;
-     }
-    
+        float: right;
+        margin-left: 15px;
+        cursor: pointer;
+      }  
   }
+}
+
+.new_message{
+  width: 100%;
+  display: flex;
+}
+
+.icon{
+  color: #434a54;
+}
+
+.hidden{
+  display: none;
 }
