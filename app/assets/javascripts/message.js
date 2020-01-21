@@ -13,7 +13,6 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      console.log(messages)
       if (messages.length !== 0) {
       //追加するHTMLの入れ物を作る
       var insertHTML = '';
@@ -24,66 +23,64 @@ $(function(){
       //メッセージが入ったHTMLに、入れ物ごと追加
       $('.chat-main__message-list_add').append(insertHTML);
       $('.chat-main__message-list_add').animate({ scrollTop: $('.chat-main__message-list_add')[0].scrollHeight});
-      $("#new_message")[0].reset();
-      $(".form__submit").prop("disabled", false);
       }
     })
     .fail(function() {
-      console.log('error');
+      alert('error');
     });
   };
 
     var buildHTML = function(message) {
      if ( message.content && message.image) {
        var html =
-        '<div class = "chat-main__message-list" data-message-id=' + message.id + '>' +
-          '<div class="chat-main__message-list__namebox1">' +
-             '<div class = "chat-main__message-list__namebox1__name1">' +
-               message.user_name +
-             '</div>' +
-             '<div class= "chat-main__message-list__namebox1__date1">' +
-               message.created_at +
-             '</div>' +
-           '</div>' +
-           '<div class="chat-main__message-list__comments1">' +
-             '<p class="chat-main__message-list__comments1__content">' +
-               message.content +
-             '</p>' +
-             '<img src="' + message.image + '" class="chat-main__message-list__comments1__image"> ' +
-           '</div>' +
-        '</div>'
+        `<div class = "chat-main__message-list" data-message-id=${message.id}>
+          <div class = "chat-main__message-list__namebox1">
+            <div class = "chat-main__message-list__namebox1__name1">
+              ${message.user_name} 
+            </div>
+            <div class= "chat-main__message-list__namebox1__date1">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="chat-main__message-list__comments1">
+            <p class="chat-main__message-list__comments1__content">
+              ${message.content}
+            </p>
+            <img src="${message.image}" class="chat-main__message-list__comments1__image">
+          </div>
+        </div>`
     } else if (message.content) {
       var html = 
-        '<div class="chat-main__message-list" data-message-id=' + message.id + '>' +
-          '<div class="chat-main__message-list__namebox1">' +
-            '<div class="chat-main__message-list__namebox1__name1">' +
-              message.user_name +
-            '</div>' +
-            '<div class="chat-main__message-list__namebox1__date1">' +
-              message.created_at +
-            '</div>' +
-          '</div>' +
-          '<div class="chat-main__message-list__comments1">' +
-            '<p class="chat-main__message-list__comments1__content">' +
-              message.content +
-            '</p>' +
-          '</div>' +
-        '</div>'
+        `<div class="chat-main__message-list" data-message-id=${message.id}>
+          <div class="chat-main__message-list__namebox1">
+            <div class="chat-main__message-list__namebox1__name1">
+              ${message.user_name}
+            </div>
+            <div class="chat-main__message-list__namebox1__date1">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="chat-main__message-list__comments1">
+            <p class="chat-main__message-list__comments1__content">
+              ${message.content}
+            </p>
+          </div>
+        </div>`
     } else if (message.image) {
       var html =
-        '<div class = "chat-main__message-list" data-message-id=' + message.id + '>' +
-          '<div class="chat-main__message-list__namebox1">' +
-            '<div class = "chat-main__message-list__namebox1__name1">' +
-              message.user_name +
-            '</div>' +
-            '<div class="chat-main__message-list__namebox1__date1">' +
-              message.created_at +
-            '</div>' +
-          '</div>' +
-          '<div class = "chat-main__message-list__comments1">' +
-            '<img src="' + message.image + '" class="chat-main__message-list__comments1__image" >' +
-          '</div>' +
-        '</div>'
+        `<div class = "chat-main__message-list" data-message-id=${message.id}>
+          <div class="chat-main__message-list__namebox1">
+            <div class = "chat-main__message-list__namebox1__name1">
+              ${message.user_name}
+            </div>
+            <div class="chat-main__message-list__namebox1__date1">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class = "chat-main__message-list__comments1">
+            <img src="${message.image}" class="chat-main__message-list__comments1__image" >
+          </div>
+        </div>`
     };
     return html;
   };
@@ -102,7 +99,6 @@ $('#new_message').on('submit', function(e){
     })
     .done(function(data){
       var html = buildHTML(data);
-      console.log(data);
       $('.chat-main__message-list_add').append(html);      
       $('.chat-main__message-list_add').animate({ scrollTop: $('.chat-main__message-list_add')[0].scrollHeight});
     })
