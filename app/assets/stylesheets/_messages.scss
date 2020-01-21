@@ -11,6 +11,8 @@
 .side-bar{
   width: 300px;
   background-color: #2f3e51;
+  overflow: scroll;
+  overflow: scroll;
   &__user-name{
     height: 100px;
     background-color: #253141;
@@ -42,7 +44,6 @@
 
 .group{
   height: calc(100vh-100px);
-  overflow: scroll;
   &__name{
     color: white;
     font-size: 15px;
