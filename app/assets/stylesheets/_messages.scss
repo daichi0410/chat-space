@@ -111,15 +111,17 @@
         }
     }
 
-  &__message-list{
+  &__message{
+        height: calc(100vh - 190px);
+        overflow: scroll;
+  &__list{
     background-color: #fafafa;
-    height: calc(100vh - 190px);
-    overflow: scroll;
     &__namebox1{
       display: flex;
       padding-top: 35px;
       margin-bottom: 12px;
       margin-left: 40px;
+      height: 50px;
       &__name1{
         color: #333333;
         font-size: 16px;
@@ -158,6 +160,7 @@
         margin-left: 40px;
       }
     }
+  }
   
   &__message-form{
     background-color: #d2d2d2;
